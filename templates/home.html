@@ -9,7 +9,7 @@
 <h1>Homepage</h1>
 <img class="bookcover" src="{% static 'images/deceptionpoint.jpg' %}">
 {% if user.is_authenticated %}
-    Hi {{ user.email }}!
+    <p>Hi {{ user.email }}!</p>
     <p><a href="{% url 'account_logout' %}">Log Out</a></p>
 {% else %}
     <p>You are not logged in</p>
