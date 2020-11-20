@@ -1,5 +1,6 @@
 import stripe
 from django.conf import settings
+from django.contrib.auth.models import Permission
 from django.shortcuts import render
 from django.conf import settings
 from django.views.generic.base import TemplateView
@@ -16,6 +17,15 @@ class OrdersPageView(TemplateView):
         return context
 
 def charge(request):
+    #get the permission
+    permission = Permission.objects.get(codename='special_status')
+
+    #get user
+    u = request.user
+
+    #add to user's permission set
+    u.user_permissions.add(permission)
+    
     if request.method == 'POST':
         charge = stripe.Charge.create(
             amount=3900,
