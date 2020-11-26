@@ -10,7 +10,6 @@
    {% for book in book_list %}
     <div>
         <h2><a href="{{ book.get_absolute_url }}">{{ book.title }}</a></h2>
-        <a class="btn btn-success" href="% url 'orders' %">Buy Book</a>
     </div> 
     {% endfor %}
 {% endblock content %}
