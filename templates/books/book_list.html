@@ -5,8 +5,6 @@
 
 
 {% block content %}
-<!-- {% if not perms.books.special_status %} -->
-<!-- {% endif %} -->
    {% for book in book_list %}
     <div>
         <h2><a href="{{ book.get_absolute_url }}">{{ book.title }}</a></h2>
